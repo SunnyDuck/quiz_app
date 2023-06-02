@@ -1,0 +1,8 @@
+.mainPage-wrapper{
+    text-align: center;
+}
+
+.usersResults-wrapper{
+    display: flex;
+    justify-content: space-evenly;
+}

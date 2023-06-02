@@ -1,0 +1,19 @@
+.link_wrapper{
+    background-color: aliceblue;
+    width: 200px;
+    display: flex;
+    align-items: center;
+}
+
+.link{
+    color: black;
+    text-decoration: none;
+    width: 200px;
+}
+
+.active-link{
+    color: gray;
+    cursor: default;
+    text-decoration: none;
+    width: 200px;
+}
