@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
-import {useTypesSelector} from "../hooks/useTypesSelector";
+import {useTypesSelector} from "../../hooks/useTypesSelector";
 
-const UsersList: FC = () => {
+const ThinkingSpeedUsersList: FC = () => {
 
     const {users} = useTypesSelector(state => state.user)
 
@@ -12,6 +12,8 @@ const UsersList: FC = () => {
                     {users.map(user =>
                         <div>
                             {user.name}
+                            <div></div>
+                            {user.speedExamPoints}
                         </div>
                     )}
                 </div>
@@ -24,4 +26,4 @@ const UsersList: FC = () => {
     );
 };
 
-export default UsersList;
+export default ThinkingSpeedUsersList;

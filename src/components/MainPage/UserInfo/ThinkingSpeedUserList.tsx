@@ -1,8 +1,7 @@
 import React, {FC} from 'react';
-import {useTypesSelector} from "../hooks/useTypesSelector";
-import {Route} from "react-router-dom";
+import {useTypesSelector} from "../../hooks/useTypesSelector";
 
-const UserList: FC = () => {
+const MemoryUserList: FC = () => {
 
     const {users} = useTypesSelector(state => state.user)
 
@@ -11,6 +10,8 @@ const UserList: FC = () => {
             {users.length > 0 ?
                 <div>
                     {users[users.length-1].name}
+                    <div></div>
+                    {users[users.length-1].speedExamPoints}
                 </div>
                 :
                 <div>
@@ -21,4 +22,4 @@ const UserList: FC = () => {
     );
 };
 
-export default UserList;
+export default MemoryUserList;

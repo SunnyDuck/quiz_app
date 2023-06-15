@@ -1,7 +1,11 @@
 import React from 'react';
 import '../../styles/MainPageStyles/MainPageStyle.css'
-import UsersList from "./UsersList";
-import UserList from "./UserList";
+import MemoryUsersList from "./UsersInfo/MemoryUsersList";
+import MemoryUserList from "./UserInfo/MemoryUserList";
+import UsersGpaMemoryTest from "./UsersInfo/UsersGPAMemoryTest";
+import UsersGpaSpeedTest from "./UsersInfo/UsersGPASpeedTest";
+import ThinkingSpeedUserList from "./UserInfo/ThinkingSpeedUserList";
+import ThinkingSpeedUsersList from "./UsersInfo/ThinkingSpeedUsersList";
 
 const MainPage = () => {
     return (
@@ -17,16 +21,31 @@ const MainPage = () => {
                     <h4>
                         тест на объем памяти:
                     </h4>
-                    <UserList/>
+                    <MemoryUserList/>
                     <h4>
                         тест на скорость мышления:
                     </h4>
+                    <ThinkingSpeedUserList/>
                 </div>
                 <div className={'topUsersResults-wrapper'}>
                     <h3>
-                        Лучшие результаты
+                        Лучшие результаты теста на объем памяти
                     </h3>
-                    <UsersList/>
+                    <MemoryUsersList/>
+                    <h3>
+                        Средний балл теста на объем памяти
+                    </h3>
+                    <UsersGpaMemoryTest/>
+                </div>
+                <div className={'topUsersResults-wrapper'}>
+                    <h3>
+                        Лучшие результаты теста на скорость мышления
+                    </h3>
+                    <ThinkingSpeedUsersList/>
+                    <h3>
+                        Средний балл теста на скорость мышления
+                    </h3>
+                    <UsersGpaSpeedTest/>
                 </div>
             </div>
         </div>
