@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {useTypesSelector} from "../../hooks/useTypesSelector";
-import '../../../styles/MemoryTestStyles/MemoryTestPageStyle.css'
+import '../../../styles/TestsStyles/MemoryTestPageStyle.css'
 import TimerComponent from "../../TestComponents/TimerComponent";
 import QuestionComponent from "../../TestComponents/QuestionComponent";
 import {useDispatch} from "react-redux";

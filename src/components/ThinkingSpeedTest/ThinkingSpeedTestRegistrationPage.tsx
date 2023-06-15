@@ -1,5 +1,5 @@
-import React from 'react';
-import '../../styles/MemoryTestStyles/MemoryTestPageStyle.css'
+import React, {FC} from 'react';
+import '../../styles/TestsStyles/MemoryTestPageStyle.css'
 import {userId} from "../App";
 import RegistrationComponent from "../RegistrationComponents/RegistrationComponent";
 import {NavLink} from "react-router-dom";
@@ -11,7 +11,7 @@ const instructionText = "Вам будут последовательно пре
     "а затем вам нужно вписать ответ в пустую ячейку. Исследование требует концентрации внимания и занимает около 20 минут. " +
     "Спасибо что решились на это.";
 
-const ThinkingSpeedTestRegistrationPage = () => {
+const ThinkingSpeedTestRegistrationPage: FC = () => {
 
     const dispatch = useDispatch()
     const setDefaultAnswerState = () => {
