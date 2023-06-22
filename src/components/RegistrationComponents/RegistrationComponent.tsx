@@ -14,7 +14,7 @@ const RegistrationComponent = (props: registrationProps) => {
                         <RegistrationTitle/>
                     </div>
                     <DataCapture/>
-                    <p>Количество вопросов в тесте: 14</p>
+                    <p>Количество вопросов в тесте: {props.questionsAmount}</p>
                 </div>
                 <img src={'cuteimg.jpg'} className={'cuteImg'}/>
             </div>

@@ -5,6 +5,8 @@ import RegistrationComponent from "../RegistrationComponents/RegistrationCompone
 import {userId} from "../App";
 import {NavLink} from "react-router-dom";
 import {useDispatch} from "react-redux";
+import {useTypesSelector} from "../hooks/useTypesSelector";
+import {memoryTestReducer} from "../../store/reducers/memoryTestReducer";
 
 const instructionText = "Вам будут последовательно предьявляться ряды чисел и ваша задача их запомнить. " +
     "Исследование организовано следующим образом: сначала вам демонстрируется ряд чисел в течении ограниченого времени " +
@@ -14,6 +16,7 @@ const instructionText = "Вам будут последовательно пре
 const MemoryTestRegistrationPage: FC = () => {
 
     const dispatch = useDispatch()
+    const {memoryTestQuestions} = useTypesSelector(state => state.memoryTest)
     const setDefaultAnswerState = () => {
         dispatch({type: 'SET_DEFAULT_STATE'})
     }
@@ -21,7 +24,7 @@ const MemoryTestRegistrationPage: FC = () => {
     return (
         <div>
             {!userId ?
-                <RegistrationComponent instructionText={instructionText} pageRoute={'/memorytest/'}/>:
+                <RegistrationComponent instructionText={instructionText} pageRoute={'/memorytest/'} questionsAmount={memoryTestQuestions.length}/>:
                 <div>
                     <PageTitle instructionText={instructionText}/>
                     <NavLink

@@ -12,7 +12,7 @@ const MemoryTestPage = () => {
 
     const dispatch = useDispatch()
     const {memoryTestQuestions} = useTypesSelector(state => state.memoryTest)
-    const {seconds, hidden, questionNumber, disableButton} = useTypesSelector(state => state.addAnswerButton)
+    const {seconds, hidden, questionNumber, disableButton, answerInputState} = useTypesSelector(state => state.addAnswerButton)
     const [userAnswer, setUserAnswer] = useState<number>()
 
     const setSeconds = (seconds: number) => {
@@ -36,16 +36,12 @@ const MemoryTestPage = () => {
         return () => clearInterval(timer)
     }, [seconds]);
 
-    const addUserPoints = (points: number, id: number) => {
-        dispatch({type: userActionType.ADD_USER_MEMORY_POINTS, payload: points, userId: id})
-    }
-
     return (
         <div className={'test-wrapper'}>
             <div className={'test-container'}>
                 <TimerComponent seconds={seconds}/>
                 <QuestionComponent hidden={hidden} quest={memoryTestQuestions[questionNumber]}/>
-                <input id={'inputID'} hidden={hidden} onChange={
+                <input value={answerInputState} hidden={hidden} onChange={
                     e => setUserAnswer(Number(e.target.value))
                 }/>
                 <AddAnswerButton

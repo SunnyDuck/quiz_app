@@ -58,7 +58,8 @@ export interface questionProps{
 }
 
 export interface registrationProps{
-    instructionText: string
+    instructionText: string,
+    questionsAmount: number,
     pageRoute: string
 }
 
@@ -70,7 +71,8 @@ export interface addAnswerButtonState {
     seconds: number,
     hidden: boolean,
     questionNumber: number,
-    disableButton: boolean
+    disableButton: boolean,
+    answerInputState?: string
 }
 
 export interface addAnswerButtonAction {

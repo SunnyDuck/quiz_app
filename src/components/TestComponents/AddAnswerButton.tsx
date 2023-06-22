@@ -41,7 +41,7 @@ const AddAnswerButton = (props: addAnswerButtonProps) => {
             if(questionNumber < props.testLength){
                 setHidden(true)
                 props.userAnswer === props.correctAnswer ?
-                    setUserTestPoints(userTestPoints + 1)
+                    setUserTestPoints(prev => prev + 1)
                     :
                     setUserTestPoints(userTestPoints)
                 setSeconds(2)

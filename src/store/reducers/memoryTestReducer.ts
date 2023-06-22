@@ -1,7 +1,7 @@
 import {memoryTestState, memoryTestAction} from "../../types/data";
 
 const initialState: memoryTestState = {
-    memoryTestQuestions: [3, 42, 678, 1902]
+    memoryTestQuestions: [3, 42, 678, 1902, 16723]
 }
 
 export const memoryTestReducer = (state = initialState, action: memoryTestAction): memoryTestState => {

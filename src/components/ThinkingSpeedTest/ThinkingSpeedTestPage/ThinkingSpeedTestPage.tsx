@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import '../../../styles/TestsStyles/MemoryTestPageStyle.css'
 import {useDispatch} from "react-redux";
 import TimerComponent from "../../TestComponents/TimerComponent";
@@ -13,8 +13,10 @@ const ThinkingSpeedTestPage = () => {
 
     const dispatch = useDispatch()
     const {thinkingSpeedTestQuestions, thinkingSpeedTestAnswers} = useTypesSelector(state => state.thinkingSpeedTest)
-    const {seconds, hidden, questionNumber, disableButton} = useTypesSelector(state => state.addAnswerButton)
+    const {seconds, hidden, questionNumber, disableButton, answerInputState} = useTypesSelector(state => state.addAnswerButton)
     const [userAnswer, setUserAnswer] = useState<number>()
+    const inputRef = useRef(null);
+
 
     const setSeconds = (seconds: number) => {
         dispatch({type: addAnswerButtonType.SET_SECONDS, seconds})
@@ -24,7 +26,7 @@ const ThinkingSpeedTestPage = () => {
         dispatch({type: addAnswerButtonType.SET_HIDDEN, hidden})
     }
 
-    React.useEffect(() => {
+    useEffect(() => {
         const timer = setInterval(() => {
             if (seconds > 0) {
                 setSeconds(seconds - 1);
@@ -42,9 +44,7 @@ const ThinkingSpeedTestPage = () => {
             <div className={'test-container'}>
                 <TimerComponent seconds={seconds}/>
                 <QuestionComponent hidden={hidden} quest={thinkingSpeedTestQuestions[questionNumber]}/>
-                <input hidden={hidden} onChange={
-                    e => setUserAnswer(Number(e.target.value))
-                }/>
+                <input value={answerInputState} hidden={hidden} onChange={e => setUserAnswer(Number(e.target.value))}/>
                 <AddAnswerButton
                     testLength={thinkingSpeedTestQuestions.length-1}
                     userAnswer={Number(userAnswer)}

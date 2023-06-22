@@ -5,7 +5,8 @@ const initialState: addAnswerButtonState = {
     seconds: 5,
     hidden: true,
     questionNumber: 0,
-    disableButton: false
+    disableButton: false,
+    answerInputState: ''
 }
 
 export const addAnswerButtonReducer = (state = initialState, action: addAnswerButtonAction): addAnswerButtonState => {
@@ -29,14 +30,15 @@ export const addAnswerButtonReducer = (state = initialState, action: addAnswerBu
                 questionNumber: action.questionNumber,
                 seconds: state.seconds,
                 hidden: state.hidden,
-                disableButton: state.disableButton
+                disableButton: state.disableButton,
+                answerInputState: ''
             })
         case addAnswerButtonType.SET_DISABLE_BUTTON:
             return ({
                 questionNumber: state.questionNumber,
                 seconds: state.seconds,
                 hidden: state.hidden,
-                disableButton: action.disableButton
+                disableButton: action.disableButton,
             })
         case addAnswerButtonType.SET_DEFAULT_STATE:
             return (state = initialState)
